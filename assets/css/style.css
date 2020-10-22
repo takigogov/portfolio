@@ -450,6 +450,14 @@ section {
   border-left: 2px solid #1f5297;
   position: relative;
 }
+.blankResume {
+  margin-top: -2px;
+  border-left: 2px solid #1f5297;
+  position: relative;
+  padding: 5px;
+
+}
+
 
 .resume .resume-item h4 {
   line-height: 18px;
