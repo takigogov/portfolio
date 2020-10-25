@@ -109,13 +109,17 @@
     this_form.find('.error-message').slideUp();
     this_form.find('.loading').slideDown();
 
-
+     var prepareBody = "From: " + $("#email").val() +"<br>" +"Name: " + $("#name").val() +"<br>"
+     +"Subject: " + $("#subject").val() +"<br>"
+     +"Message: " + $("#message").val() +"<br>";
+      console.log('prepareBody');
+      console.log(prepareBody);
     Email.send({
       SecureToken : "105a4d42-40d7-465b-b583-21964b35300d",
-      To : $("#email").val(),
+      To : "takigogov97@gmail.com",
       From : "takigogov@gmail.com",
       Subject : $("#subject").val(),
-      Body : $("#message").val()
+      Body : prepareBody
   }).then(
     function(msg){
    console.log('function');
