@@ -97,28 +97,52 @@
     if (ferror) return false;
 
     var this_form = $(this);
-    var action = $(this).attr('action');
+    // var action = $(this).attr('action');
 
-    if( ! action ) {
-      this_form.find('.loading').slideUp();
-      this_form.find('.error-message').slideDown().html('The form action property is not set!');
-      return false;
-    }
+    // if( ! action ) {
+    //   this_form.find('.loading').slideUp();
+    //   this_form.find('.error-message').slideDown().html('The form action property is not set!');
+    //   return false;
+    // }
     
     this_form.find('.sent-message').slideUp();
     this_form.find('.error-message').slideUp();
     this_form.find('.loading').slideDown();
 
-    if ( $(this).data('recaptcha-site-key') ) {
-      var recaptcha_site_key = $(this).data('recaptcha-site-key');
-      grecaptcha.ready(function() {
-        grecaptcha.execute(recaptcha_site_key, {action: 'php_email_form_submit'}).then(function(token) {
-          php_email_form_submit(this_form,action,this_form.serialize() + '&recaptcha-response=' + token);
-        });
-      });
-    } else {
-      php_email_form_submit(this_form,action,this_form.serialize());
+
+    Email.send({
+      SecureToken : "105a4d42-40d7-465b-b583-21964b35300d",
+      To : $("#email").val(),
+      From : "takigogov@gmail.com",
+      Subject : $("#subject").val(),
+      Body : $("#message").val()
+  }).then(
+    function(msg){
+   console.log('function');
+   console.log(msg);
+      if (msg == 'OK') {
+        this_form.find('.loading').slideUp();
+        this_form.find('.sent-message').slideDown();
+        this_form.find("input:not(input[type=submit]), textarea").val('');
+  
+      }else{
+        this_form.find('.loading').slideUp();
+        this_form.find('.error-message').slideDown().html(msg);
+      }
     }
+  );
+    
+
+    // if ( $(this).data('recaptcha-site-key') ) {
+    //   var recaptcha_site_key = $(this).data('recaptcha-site-key');
+    //   grecaptcha.ready(function() {
+    //     grecaptcha.execute(recaptcha_site_key, {action: 'php_email_form_submit'}).then(function(token) {
+    //       php_email_form_submit(this_form,action,this_form.serialize() + '&recaptcha-response=' + token);
+    //     });
+    //   });
+    // } else {
+    //   php_email_form_submit(this_form,action,this_form.serialize());
+    // }
     
     return true;
   });

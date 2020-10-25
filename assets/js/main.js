@@ -1,37 +1,4 @@
-/**
-* Template Name: iPortfolio - v1.3.0
-* Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-
-
-function SendEmail(){
-  
-  //       Email.send({
-  //     Host : "smtp.elasticemail.com",
-  //     Username : "takigogov@gmail.com",
-  //     Password : "6C798A788CF6DC4F546A5A281BFB47F5810B",
-  //     To : "takigogov97@gmail.com",
-  //     From : $("#email").val(),
-  //     Subject : $("#subject").val(),
-  //     Body : $("#message").val()
-  // }).then(
-  //   message => alert(message)
-  // );
-
-
-  Email.send({
-    SecureToken : "105a4d42-40d7-465b-b583-21964b35300d",
-    To : $("#email").val(),
-    From : "takigogov@gmail.com",
-    Subject : $("#subject").val(),
-    Body : $("#message").val()
-}).then(
-  message => alert(message)
-);
-      }
 !(function($) {
   "use strict";
 

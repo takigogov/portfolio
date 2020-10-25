@@ -74,9 +74,9 @@
           <li><a href="#resume"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
           <li><a href="#skills"><i class="icofont-ui-settings"></i> Skills</a></li>
           <li><a href="#portfolio"><i class="icofont-book-alt"></i> Portfolio</a></li>
-          <!-- <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li> -->
+          <li><a href="#contact"><i class="bx bx-envelope"></i> Contact</a></li>
           <br>
-          <!-- <li></li><a href="" download aria-disabled="true"> <i class="bx bx-download"></i>Download CV</a></li> -->
+          <li></li><a href="" download aria-disabled="true"> <i class="bx bx-download"></i>Download CV</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -587,7 +587,7 @@
     <!-- End Testimonials Section -->
 
     <!-- ======= Contact Section ======= -->
-    <!-- <section id="contact" class="contact section-bg">
+    <section id="contact" class="contact section-bg">
       <div class="container">
 
         <div class="section-title">
@@ -617,7 +617,7 @@
               </div>
               <div class="form-group">
                 <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                <textarea class="form-control" name="message" id="message" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
                 <div class="validate"></div>
               </div>
               <div class="mb-3">
@@ -633,7 +633,7 @@
 
       </div>
     </section>
-     -->
+     
     <!-- End Contact Section -->
 
   </main><!-- End #main -->
@@ -654,38 +654,8 @@
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-
-  <script>
-$(document).ready(function() {
-$("#submit").click(function() {
-var name = $("#name").val();
-var email = $("#email").val();
-var message = $("#message").val();
-var contact = $("#subject").val();
-$("#returnmessage").empty(); // To empty previous error/success message.
-// Checking for blank fields.
-if (name == '' || email == '' || contact == '') {
-alert("Please Fill Required Fields");
-} else {
-// Returns successful data submission message when the entered information is stored in database.
-$.post("contact_form.php", {
-name1: name,
-email1: email,
-message1: message,
-contact1: contact
-}, function(data) {
-$("#returnmessage").append(data); // Append returned message to message paragraph.
-if (data == "Your Query has been received, We will contact you soon.") {
-$("#form")[0].reset(); // To reset form fields on success.
-}
-});
-}
-});
-});
-
-
+  <script src="https://smtpjs.com/v3/smtp.js">
   </script>
-
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
